@@ -12,13 +12,14 @@ public class CustomerRepository {
 	List<Customer> customers = new ArrayList<>();
 	
 	public CustomerRepository() {
-		customers.add(new Customer("Test", "Test", "2015-01-01", 12345, "mail@test.lt"));
+		customers.add(new Customer(customers.size()+1,"Test", "Test", "2015-01-01", 12345, "mail@test.lt"));
 	}
 	
 	public List<Customer> findAll(){
 		return customers;
 	}
 	public Customer create(Customer c) {
+		c.setId(customers.size()+1);
 		customers.add(c);
 		return c;
 	}
